@@ -1,3 +1,3 @@
-# 💤 LazyVim
+# Neovim Config
 
 Custom LazyVim config.
