@@ -50,4 +50,10 @@ return {
       })
     end,
   },
+  {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "emmet-language-server" } },
+  },
+  { "tpope/vim-abolish" },
+  { "markonm/traces.vim" },
 }
