@@ -45,6 +45,7 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
+        path_display = { "smart" },
         vimgrep_arguments = {
           "rg",
           "--color=never",
