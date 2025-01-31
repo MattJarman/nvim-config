@@ -41,25 +41,6 @@ return {
       notifier = { enabled = false },
     },
   },
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        path_display = { "smart" },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-          "--glob",
-          "!{**/.git/*,**/node_modules/*,**/pkg/mod/*,**/yarn.lock,**/.local/*}",
-        },
-      },
-    },
-  },
   { "nvim-neotest/neotest-jest", "marilari88/neotest-vitest" },
   {
     "nvim-neotest/neotest",
