@@ -4,3 +4,4 @@
 
 -- vim.o.timeout = false
 vim.g.traces_abolish_integration = 1
+vim.g.snacks_animate = false
