@@ -6,3 +6,7 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 keymap("i", "jk", "<ESC>", opts)
+keymap("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+keymap("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+keymap("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+keymap("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
