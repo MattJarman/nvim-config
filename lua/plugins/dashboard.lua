@@ -68,6 +68,8 @@ return {
                 key = "n",
                 icon = " ",
                 height = 5,
+                indent = 2,
+                padding = 1,
               },
               {
                 icon = " ",
@@ -81,12 +83,16 @@ return {
                   vim.fn.jobstart("gh pr list --web", { detach = true })
                 end,
                 height = 7,
+                indent = 2,
+                padding = 1,
               },
               {
                 icon = " ",
                 title = "Git Status",
                 cmd = "git --no-pager diff --stat -B -M -C",
                 height = 10,
+                indent = 2,
+                padding = 1,
               },
             }
             return vim.tbl_map(function(cmd)
