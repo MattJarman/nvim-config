@@ -41,16 +41,6 @@ return {
       sections = {
         { section = "header" },
         { section = "keys", gap = 1, padding = 2 },
-        {
-          icon = " ",
-          title = "Recent Files",
-          section = "recent_files",
-          indent = 2,
-          padding = 2,
-          enabled = function()
-            return vim.o.lines > 40
-          end,
-        },
         function()
           local in_git = Snacks.git.get_root() ~= nil
           local cmds = {
@@ -68,7 +58,7 @@ return {
               ttl = 5 * 60,
               indent = 2,
               enabled = function()
-                return in_git and vim.o.lines > 60
+                return in_git and vim.o.lines > 40
               end,
             }, cmd)
           end, cmds)
