@@ -41,28 +41,6 @@ return {
       sections = {
         { section = "header" },
         { section = "keys", gap = 1, padding = 2 },
-        function()
-          local in_git = Snacks.git.get_root() ~= nil
-          local cmds = {
-            {
-              icon = " ",
-              title = "Git Status",
-              cmd = "git --no-pager diff --stat -B -M -C",
-              height = 10,
-            },
-          }
-          return vim.tbl_map(function(cmd)
-            return vim.tbl_extend("force", {
-              section = "terminal",
-              padding = 1,
-              ttl = 5 * 60,
-              indent = 2,
-              enabled = function()
-                return in_git and vim.o.lines > 40
-              end,
-            }, cmd)
-          end, cmds)
-        end,
         { section = "startup", padding = 1 },
       },
     },
