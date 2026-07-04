@@ -12,7 +12,7 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = { ensure_installed = { "emmet-language-server" } },
   },
   { "tpope/vim-abolish" },
