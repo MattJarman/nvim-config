@@ -13,7 +13,7 @@ return {
   },
   {
     "mason-org/mason.nvim",
-    opts = { ensure_installed = { "emmet-language-server" } },
+    opts = { ensure_installed = { "emmet-language-server", "biome" } },
   },
   { "tpope/vim-abolish" },
   { "markonm/traces.vim" },

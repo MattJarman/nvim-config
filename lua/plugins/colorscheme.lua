@@ -1,5 +1,17 @@
 return {
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      transparent_background = true,
+      term_colors = true,
+      float = {
+        transparent = true,
+      },
+    },
+  },
+  {
     "rebelot/kanagawa.nvim",
     opts = {
       transparent = true,
@@ -41,7 +53,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-dragon",
+      colorscheme = "catppuccin-nvim",
     },
   },
 }
