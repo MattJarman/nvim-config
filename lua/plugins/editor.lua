@@ -27,7 +27,7 @@ return {
       },
     },
   },
-  { "folk/noice.nvim", opts = { lsp = { hover = { silent = true } } } },
+  { "folke/noice.nvim", opts = { lsp = { hover = { silent = true } } } },
   { "nvim-neotest/neotest-jest", "marilari88/neotest-vitest" },
   {
     "nvim-neotest/neotest",
