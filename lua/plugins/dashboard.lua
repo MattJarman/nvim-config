@@ -3,6 +3,8 @@ local logo = {
   right = { "     ▀        ", "█  █ █ █▀▀█▀▀▄", "█  █ █ █__█__█", " ▀▀  ▀ ▀~~▀~~▀" },
 }
 
+local logo_width = vim.api.nvim_strwidth(logo.left[2] .. " " .. logo.right[2])
+
 local marks = {
   ["_"] = { " ", "Fill" },
   ["^"] = { "▀", "Fill" },
@@ -52,38 +54,40 @@ local function logo_section()
   return { text = text, align = "center", padding = 2 }
 end
 
+local function startup_section()
+  local stats = require("lazy.stats").stats()
+  local ms = math.floor(stats.startuptime + 0.5)
+  local text = ("loaded %d/%d plugins in %dms"):format(stats.loaded, stats.count, ms)
+  return { text = { text, hl = "Comment" }, align = "center", padding = 1 }
+end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
     dashboard = {
+      width = logo_width,
+      formats = {
+        desc = { "%s", hl = "Normal" },
+        key = { "%s", hl = "Comment" },
+      },
       preset = {
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          {
-            icon = " ",
-            key = "g",
-            desc = "Find Text",
-            action = ":lua Snacks.dashboard.pick('live_grep')",
-          },
-          {
-            icon = " ",
-            key = "r",
-            desc = "Recent Files",
-            action = ":lua Snacks.dashboard.pick('oldfiles')",
-          },
-
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          { key = "f", desc = "find file", action = ":lua Snacks.dashboard.pick('files')" },
+          { key = "n", desc = "new file", action = ":ene | startinsert" },
+          { key = "g", desc = "find text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { key = "r", desc = "recent files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { key = "s", desc = "restore session", section = "session" },
+          { key = "q", desc = "quit", action = ":qa" },
         },
       },
 
       sections = {
+        require("dashboard_scene").setup,
         logo_section,
-        { section = "keys", gap = 1, padding = 2 },
-        { section = "startup", padding = 1 },
+        { section = "keys", padding = 2 },
+        startup_section,
       },
     },
   },
